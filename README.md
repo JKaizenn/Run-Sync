@@ -6,7 +6,9 @@ The lost feature you always wanted for Strava ~ anonymous
 
 # Prerequisites And Requirements 
 
-# Application # Steps of Code Execution: 
+# Application 
+
+# Steps of Code Execution: 
 
 # Future 
 
