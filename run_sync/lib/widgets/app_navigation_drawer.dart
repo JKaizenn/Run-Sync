@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/about_screen.dart';
+import '../screens/about_screen.dart'; // Import the AboutScreen
 
 class AppNavigationDrawer extends StatelessWidget {
   const AppNavigationDrawer({super.key});
@@ -10,23 +10,26 @@ class AppNavigationDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+          Container(
+            decoration: const BoxDecoration(
+               // Updated color
             ),
             child: const Text(
-              'Menu',
+              ' ',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 48,
               ),
             ),
           ),
+          // Add space below the header
+          const SizedBox(height: 20), // Adjust height as needed
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
             onTap: () {
               // Handle settings tap
+              // Future: Navigate to Settings Page
             },
           ),
           ListTile(
