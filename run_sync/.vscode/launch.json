@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/jessenforbush/dev/Run_Sync/Run-Sync/run_sync/linux",
+      "program": "/Users/jessenforbush/dev/Run_Sync/Run-Sync/run_sync/linux/build/Debug/outDebug"
+    }
+  ]
+}
