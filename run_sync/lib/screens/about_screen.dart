@@ -9,11 +9,11 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('About'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20), // Padding for content
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20), // Padding for content
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start, // Aligns all text to start
-          children: const [
+          children: [
             Text(
               '"To affect the quality of the day, that is the highest of arts. Every man is tasked to make his life, even in its details, worthy of the contemplation of his most elevated and critical hour."',
               style: TextStyle(

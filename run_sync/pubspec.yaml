@@ -31,18 +31,20 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  intl: ^0.18.0
+  intl: ^0.20.1
+  firebase_core: ^3.8.1
+  cloud_firestore: ^5.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
+  # encourage good coding practices. The lint set provided by the package isnpm install -g firebase-tools
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

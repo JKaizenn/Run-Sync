@@ -39,12 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     // Define the pages dynamically since `previousWorkouts` is used
     _pages.addAll([
-      Center(child: Text('Add Page')), // Placeholder for Add tab
+      const Center(child: Text('Add Page')), // Placeholder for Add tab
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: WorkoutLog(previousWorkouts: previousWorkouts), // Home tab
       ),
-      Center(child: Text('Share Page')), // Placeholder for Share tab
+      const Center(child: Text('Share Page')), // Placeholder for Share tab
     ]);
   }
 
@@ -59,10 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            const SizedBox(width: 10),
-            const CircleAvatar(
+            SizedBox(width: 10),
+            CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'),
             ),
