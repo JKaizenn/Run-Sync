@@ -3,12 +3,12 @@ import 'screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-Future<void> main() {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensures bindings are initialized
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform, // Auto-generated options
   );
-  runApp(const MyApp());
+  runApp(const MyApp()); // Your app's main widget
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Run Sync',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(0, 193, 236, 1)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(0, 193, 236, 1)),
         useMaterial3: true,
       ),
       home: const HomeScreen(), // Set HomeScreen as the default screen

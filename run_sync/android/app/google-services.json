@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "698853298771",
+    "firebase_url": "https://run-sync-a7625-default-rtdb.firebaseio.com",
+    "project_id": "run-sync-a7625",
+    "storage_bucket": "run-sync-a7625.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698853298771:android:d094b6d2838db2b04a6ca6",
+        "android_client_info": {
+          "package_name": "com.example.run_sync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698853298771-v59hes8bgt00ko8649b598tnh7di4sbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL-5Enm2gTCAVLQB-ch57JygtWGJTxABc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698853298771-v59hes8bgt00ko8649b598tnh7di4sbj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "698853298771-mtunul1v1ns3q2d78qa8c6489ndos225.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.runSync"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
