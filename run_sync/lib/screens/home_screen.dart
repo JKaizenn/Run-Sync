@@ -11,26 +11,26 @@ class HomeScreen extends StatelessWidget {
     final List<Workout> previousWorkouts = [
       Workout(
         title: "Morning Run",
-        date: DateTime.now().subtract(Duration(days: 1)),
+        date: DateTime.now().subtract(const Duration(days: 1)),
         duration: 30,
       ),
       Workout(
         title: "Evening Run",
-        date: DateTime.now().subtract(Duration(days: 2)),
+        date: DateTime.now().subtract(const Duration(days: 2)),
         duration: 45,
       ),
       Workout(
         title: "Treadmill Run",
-        date: DateTime.now().subtract(Duration(days: 3)),
+        date: DateTime.now().subtract(const Duration(days: 3)),
         duration: 25,
       ),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            const SizedBox(width: 10),
+            SizedBox(width: 10),
             CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'),

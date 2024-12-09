@@ -18,15 +18,14 @@ class Workout {
 class WorkoutLog extends StatelessWidget {
   final List<Workout> previousWorkouts;
 
-  const WorkoutLog({Key? key, required this.previousWorkouts})
-      : super(key: key);
+  const WorkoutLog({super.key, required this.previousWorkouts});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Text(
             "Workout History",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
