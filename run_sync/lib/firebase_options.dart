@@ -17,17 +17,26 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -45,7 +54,6 @@ class DefaultFirebaseOptions {
     appId: '1:698853298771:ios:a7b706bb9b74b6cc4a6ca6',
     messagingSenderId: '698853298771',
     projectId: 'run-sync-a7625',
-    databaseURL: 'https://run-sync-a7625-default-rtdb.firebaseio.com',
     storageBucket: 'run-sync-a7625.firebasestorage.app',
     iosClientId: '698853298771-mtunul1v1ns3q2d78qa8c6489ndos225.apps.googleusercontent.com',
     iosBundleId: 'com.example.runSync',
@@ -56,41 +64,8 @@ class DefaultFirebaseOptions {
     appId: '1:698853298771:ios:a7b706bb9b74b6cc4a6ca6',
     messagingSenderId: '698853298771',
     projectId: 'run-sync-a7625',
-    databaseURL: 'https://run-sync-a7625-default-rtdb.firebaseio.com',
     storageBucket: 'run-sync-a7625.firebasestorage.app',
     iosClientId: '698853298771-mtunul1v1ns3q2d78qa8c6489ndos225.apps.googleusercontent.com',
     iosBundleId: 'com.example.runSync',
   );
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA5IsoNPgtWZmC5nup2kj2Y3kezwOWtiXg',
-    appId: '1:698853298771:web:fac35500035f5f474a6ca6',
-    messagingSenderId: '698853298771',
-    projectId: 'run-sync-a7625',
-    authDomain: 'run-sync-a7625.firebaseapp.com',
-    databaseURL: 'https://run-sync-a7625-default-rtdb.firebaseio.com',
-    storageBucket: 'run-sync-a7625.firebasestorage.app',
-    measurementId: 'G-FFV66B5814',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAL-5Enm2gTCAVLQB-ch57JygtWGJTxABc',
-    appId: '1:698853298771:android:d094b6d2838db2b04a6ca6',
-    messagingSenderId: '698853298771',
-    projectId: 'run-sync-a7625',
-    databaseURL: 'https://run-sync-a7625-default-rtdb.firebaseio.com',
-    storageBucket: 'run-sync-a7625.firebasestorage.app',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyA5IsoNPgtWZmC5nup2kj2Y3kezwOWtiXg',
-    appId: '1:698853298771:web:77b46edafaafd4ce4a6ca6',
-    messagingSenderId: '698853298771',
-    projectId: 'run-sync-a7625',
-    authDomain: 'run-sync-a7625.firebaseapp.com',
-    databaseURL: 'https://run-sync-a7625-default-rtdb.firebaseio.com',
-    storageBucket: 'run-sync-a7625.firebasestorage.app',
-    measurementId: 'G-WQYEZ8E6DG',
-  );
-
 }
