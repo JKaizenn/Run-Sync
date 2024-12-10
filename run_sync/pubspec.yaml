@@ -35,8 +35,12 @@ dependencies:
   firebase_core: ^3.8.1
   cloud_firestore: ^5.5.1
   firebase_data_connect: ^0.1.0
+<<<<<<< HEAD
   some_package: ^1.0.0
 
+=======
+  firebase_auth: ^5.3.0
+>>>>>>> 3ca3a006e426b6c6758d1e74f2c8434dc42c9ed1
 
 dev_dependencies:
   flutter_test:
