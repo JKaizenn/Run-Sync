@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // For date formatting
+import 'package:cloud_firestore/cloud_firestore.dart'; // Firebase Firestore
 
 // Workout class to represent each workout
 class Workout {
@@ -12,63 +13,67 @@ class Workout {
     required this.date,
     required this.duration,
   });
-}
 
-// Workout History Widget
-class WorkoutLog extends StatelessWidget {
-  final List<Workout> previousWorkouts;
-
-  const WorkoutLog({Key? key, required this.previousWorkouts})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            "Workout History",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ),
-        const Divider(),
-        // Expanded widget ensures the ListView.builder is scrollable and fits properly
-        Expanded(
-          child: ListView.builder(
-            itemCount: previousWorkouts.length,
-            itemBuilder: (context, index) {
-              final workout = previousWorkouts[index];
-              return Card(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: ListTile(
-                  title: Text(workout.title),
-                  subtitle: Text(DateFormat.yMMMd().format(workout.date)),
-                  trailing: Text("${workout.duration} mins"),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
+  // Factory method to create a Workout from Firestore document
+  factory Workout.fromFirestore(Map<String, dynamic> data) {
+    return Workout(
+      title: data['title'] ?? 'Untitled',
+      date: (data['date'] as Timestamp).toDate(),
+      duration: int.tryParse(data['duration'].toString()) ?? 0,
     );
   }
 }
 
-// Helper method to show the overlay
-void showWorkoutOverlay(BuildContext context, List<Workout> workouts) {
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    builder: (_) {
-      return Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-        ),
-        child: WorkoutLog(previousWorkouts: workouts),
-      );
-    },
-  );
+// Workout History Widget
+class WorkoutLog extends StatelessWidget {
+  final Stream<List<Workout>> workoutsStream;
+
+  const WorkoutLog({Key? key, required this.workoutsStream}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<List<Workout>>(
+      stream: workoutsStream,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text("No workouts logged yet."));
+        }
+
+        final workouts = snapshot.data!;
+
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "Workout History",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Divider(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: workouts.length,
+                itemBuilder: (context, index) {
+                  final workout = workouts[index];
+                  return Card(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 16.0),
+                    child: ListTile(
+                      title: Text(workout.title),
+                      subtitle: Text(DateFormat.yMMMd().format(workout.date)),
+                      trailing: Text("${workout.duration} mins"),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../widgets/app_navigation_drawer.dart';
 import '../widgets/workout_log.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  // Fetch workouts from Firestore
+  Stream<List<Workout>> getWorkoutsStream() {
+    return FirebaseFirestore.instance
+        .collection('workouts')
+        .snapshots()
+        .map((querySnapshot) {
+      return querySnapshot.docs.map((doc) {
+        return Workout.fromFirestore(doc.data());
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Sample workout data
-    final List<Workout> previousWorkouts = [
-      Workout(
-        title: "Morning Run",
-        date: DateTime.now().subtract(Duration(days: 1)),
-        duration: 30,
-      ),
-      Workout(
-        title: "Evening Run",
-        date: DateTime.now().subtract(Duration(days: 2)),
-        duration: 45,
-      ),
-      Workout(
-        title: "Treadmill Run",
-        date: DateTime.now().subtract(Duration(days: 3)),
-        duration: 25,
-      ),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -56,10 +50,9 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       endDrawer: const AppNavigationDrawer(),
-      // Embed the WorkoutLog directly in the body
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: WorkoutLog(previousWorkouts: previousWorkouts),
+        child: WorkoutLog(workoutsStream: getWorkoutsStream()),
       ),
     );
   }
