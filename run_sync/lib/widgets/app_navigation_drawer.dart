@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/about_screen.dart';
+import '../screens/signup_screen.dart'; // Import the SignUpScreen
 
 class AppNavigationDrawer extends StatelessWidget {
   const AppNavigationDrawer({super.key});
@@ -8,20 +9,13 @@ class AppNavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            child: const Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
+       padding: const EdgeInsets.only(
+          top: 80,
+          left: 4,
+          right: 20,
+          bottom: 20, 
           ),
+        children: <Widget>[
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
@@ -37,6 +31,18 @@ class AppNavigationDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const AboutScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.person_add),
+            title: const Text('Sign Up'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SignUpScreen(),
                 ),
               );
             },

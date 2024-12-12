@@ -20,7 +20,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Run Sync',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        brightness: Brightness.light,
+        colorScheme: ColorScheme(
+          primary: Colors.black,
+          secondary: Colors.white,
+          surface: Colors.white,
+          onSurface: Colors.black,
+          onPrimary: Colors.white,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.white,
+          background: Colors.white,
+          onBackground: Colors.black,
+          brightness: Brightness.light,
+        ),
         useMaterial3: true,
       ),
       home: const HomeScreen(), // Set HomeScreen as the default screen
