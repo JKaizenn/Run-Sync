@@ -33,10 +33,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -68,4 +65,15 @@ class DefaultFirebaseOptions {
     iosClientId: '698853298771-mtunul1v1ns3q2d78qa8c6489ndos225.apps.googleusercontent.com',
     iosBundleId: 'com.example.runSync',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyB85mUeOkFYJWgeNGSwdLDBVs_wXyGA9Eg',
+    appId: '1:955190789987:web:49752d70d4144d1b97f556',
+    messagingSenderId: '955190789987',
+    projectId: 'run-sync-942bb',
+    authDomain: 'run-sync-942bb.firebaseapp.com',
+    storageBucket: 'run-sync-942bb.firebasestorage.app',
+    measurementId: 'G-4LJP1W81WP',
+  );
+
 }
