@@ -1,0 +1,10 @@
+{
+    "1-mile-on-treadmill.jpg": {
+        "time": "The speed isn't directly shown on the display.  To figure that out, we'd need to know the units used for distance (miles or kilometers) and then divide the distance by the time.",
+        "distance": "The speed isn't directly shown on the display.  To figure that out, we'd need to know the units used for distance (miles or kilometers) and then divide the distance by the time."
+    },
+    "img_1999.jpg": {
+        "time": "** 35 minutes and 16 seconds.",
+        "distance": "16).  Speed would be calculated by dividing the distance by the time."
+    }
+}
